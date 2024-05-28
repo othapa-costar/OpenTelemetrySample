@@ -1,0 +1,43 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+      http:
+
+processors:
+  batch:
+    timeout: 5s
+
+exporters:
+  logging:
+    logLevel: debug
+  datadog:
+    api:
+      key: <YOUR_DATADOG_API_KEY>
+    metrics:
+      hostname: ${DD_AGENT_HOST}
+      tags:
+        - "service:<YOUR_SERVICE_NAME>"
+  file:
+    path: /var/log/otel-export/s3_export.log
+    rotation:
+      size_megabytes: 10
+      max_backups: 5
+  s3:
+    region: <YOUR_AWS_REGION>
+    bucket: <YOUR_S3_BUCKET_NAME>
+
+service:
+  pipelines:
+    logs:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [datadog, file, s3]
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [datadog]
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [datadog]

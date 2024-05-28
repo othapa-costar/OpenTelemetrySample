@@ -1,0 +1,34 @@
+# This is a configuration file for the OpenTelemetry Collector intended to be
+# used in conjunction with the OTLP Exporter example (see ../TestOtlpExporter.cs)
+#
+# For more information about the OpenTelemetry Collector see:
+#   https://github.com/open-telemetry/opentelemetry-collector
+#   check the link for more configuration detail
+#   https://opentelemetry.io/docs/collector/configuration/
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+
+processors:
+  batch:
+
+exporters:
+  debug:
+    verbosity: detailed
+
+service:
+  pipelines:
+    logs:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [debug]
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [debug]
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [debug]
