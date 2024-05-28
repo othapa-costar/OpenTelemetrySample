@@ -1,0 +1,33 @@
+# Ignore Visual Studio temporary files, build results, and
+# build directories.
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (Mono Auto Generated)
+mono_crash.*
+
+# Mono auto generated files
+mono_crash.*
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+[Xx]64/
+[Xx]86/
+[Aa]rm/
+[Aa]rm64/
+[Ww][Ii][Nn]32/
+[Ww][Ii][Nn]64/
+[Aa][Aa][Rr][Cc][Hh]/
+[Tt][Ee][Mm]/
+[Oo][Tt][Tt]
+bin/
+obj/
+out/
