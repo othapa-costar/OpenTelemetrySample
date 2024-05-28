@@ -60,3 +60,7 @@ c. Run it in a newly created network
 d. Run .net application
 	docker pull <your-docker-registry>/my-dotnet-app-image:latest
 	docker run -d --name dotnet-app --network otel-network <your-docker-registry>/my-dotnet-app-image:latest
+
+
+Configuring S3 as destination
+We can use the awss3exporter(https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/awss3exporter) add on to facilitate this.

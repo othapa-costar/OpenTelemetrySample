@@ -9,6 +9,8 @@ processors:
     timeout: 5s
 
 exporters:
+  gomod:
+    github.com/open-telemetry/opentelemetry-collector-contrib/exporter/awss3exporter v0.101.0    
   logging:
     logLevel: debug
   datadog:
@@ -26,6 +28,13 @@ exporters:
   s3:
     region: <YOUR_AWS_REGION>
     bucket: <YOUR_S3_BUCKET_NAME>
+  # config for the awsexporter package
+  awss3:
+    s3uploader:
+        region: 'eu-central-1'
+        s3_bucket: 'databucket'
+        s3_prefix: 'metric'
+        s3_partition: 'minute'
 
 service:
   pipelines:
