@@ -40,3 +40,4 @@ out/
 
 #hidden visual studio files
 *.vsidx
+.vs/OpenTelemetryDemo/DesignTimeBuild/.dtbcache.v2
